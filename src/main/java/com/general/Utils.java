@@ -3,6 +3,7 @@ package com.general;
 import io.restassured.path.json.JsonPath;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,6 +31,11 @@ public class Utils {
     public static void waitForElement(WebDriver driver, String xPtah){
         WebDriverWait waitDriver = new WebDriverWait(driver, 60);
         waitDriver.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(xPtah))));
+    }
+
+    public static void waitForElement(WebDriver driver, WebElement we){
+        WebDriverWait waitDriver = new WebDriverWait(driver, 60);
+        waitDriver.until(ExpectedConditions.elementToBeClickable(we));
     }
 
     public static String getData(String key) throws IOException {
